@@ -1,0 +1,20 @@
+project_name: SAC-SWF
+seed: 0
+
+sac_swf:
+  radius: 5
+  eps: 0.001
+  rho: 1.5
+  pre_sigma: 0.6
+  sigma_t: 2.0
+  gamma: 0.5
+  tau:
+  lambda_grad: 0.0
+  hard_side: false
+  beta_mode: clip
+
+paths:
+  synthetic_data: data/synthetic
+  real_data: data/raw/real
+  results: results
+  figures: reports/figures

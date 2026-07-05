@@ -1,0 +1,71 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# Data (regeneratable)
+data/raw/
+data/synthetic/
+
+# Experiment outputs (large PNGs, regeneratable; keep tables/)
+results/exp01_window_principle/
+results/exp02_synthetic/
+results/exp03_real_images/
+results/exp04_ablation/
+results/exp05_benchmark/
+results/exp06_learning_comparison/
+results/exp07_paper_reproduction/
+
+# Old experiment figures (large, regeneratable)
+reports/figures/
+reports/paper_figures/
+
+# Third-party / external code and weights
+external/
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# LaTeX auxiliary
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.xdv
+
+# Personal signature (do not commit)
+signature_huang_yifeng.jpg
+reports/paper_figures_new/signature_huang_yifeng.jpg
+
+# Internal working docs (not for public repo)
+docs/AGENT_INSTRUCTIONS.md
+docs/CODE_CHECK_REPORT.md
+docs/REPORT_REQUIREMENTS_AND_REWRITE_RULES.md
+
+# Paper texts (copyright, do not redistribute)
+docs/deep_texture_structure_text.txt
+docs/eps_benchmark_text.txt
+docs/guided_filter_paper_text.txt
+docs/swf_paper_text.txt

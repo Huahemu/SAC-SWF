@@ -21,21 +21,21 @@ $$\hat{S} = \beta \cdot Q^F + (1 - \beta) \cdot Q^S$$
 ## 目录结构
 
 ```
-src/sac_swf/          核心算法
-  sac_swf.py            主函数：compute_beta() + sac_swf()
-  structure_tensor.py   结构张量计算（Sobel 梯度 + 闭式特征值）
-  side_window.py        8 方向边窗核生成与聚合
-  filters.py            核化引导滤波
-  baselines.py          对照方法（BOX/GF/BF/SWGF）
-  experiment.py         实验调度框架
-  metrics.py            评估指标
-  visualization.py      可视化工具
-  synthetic.py          合成数据生成
-  ...
+src/sac_swf/                核心算法
+  __init__.py                 包入口，导出 SACSWFConfig / sac_swf
+  sac_swf.py                  主函数：compute_beta() + sac_swf()
+  structure_tensor.py         结构张量（Sobel 梯度 + 闭式特征值）
+  side_window.py              8 方向边窗核生成与软聚合
+  filters.py                  核化引导滤波 / 盒子滤波 / 高斯滤波 / 双边滤波
+  baselines.py                对照方法封装（GF / BF / SWGF / hard-SWGF 等）
+  utils.py                    图像格式转换工具
 
-scripts/               实验脚本（exp01–exp07）
-configs/               参数配置
-tests/                 冒烟测试
+scripts/                    报告图表生成脚本
+  generate_paper_figures.py   生成 fig01–fig08 + 附录图（机制/候选/权重/平滑/纹理/增强/消融/运行时间）
+  generate_extra_figures.py   生成 fig09–fig12（频域响应/参数分析/去噪/棋盘格）
+  generate_method_figures.py  生成方法部分示意图（中心vs边窗/窗口定义/β行为）
+
+configs/default.yaml        默认参数配置
 ```
 
 ## 安装
@@ -50,23 +50,10 @@ pip install -e .
 ## 使用
 
 ```bash
-# 环境检查
-python scripts/00_check_environment.py
-
-# 生成合成数据
-python scripts/01_generate_synthetic.py --max-samples 12
-
-# 逐个运行实验
-python scripts/02_run_window_principle.py
-python scripts/03_run_synthetic_experiment.py --limit 6
-python scripts/04_run_real_images.py --limit 4
-python scripts/05_run_ablation.py --limit 6
-
-# 一键运行全部
-python scripts/13_run_full_pipeline.py
-
-# 冒烟测试
-python scripts/run_all_smoke.py
+# 生成报告中的全部实验图（输出到 reports/paper_figures_new/）
+python scripts/generate_paper_figures.py
+python scripts/generate_extra_figures.py
+python scripts/generate_method_figures.py
 ```
 
 ## 参考文献
